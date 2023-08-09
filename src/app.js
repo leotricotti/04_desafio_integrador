@@ -6,9 +6,8 @@ import handlebars from "express-handlebars";
 import mongoose from "mongoose";
 import chatRouter from "./routes/chat.router.js";
 import { Server } from "socket.io";
-// import Loader from "../Loader.js";
+import cartProductRouter from "./routes/cartProduct.router.js";
 import Messages from "./dao/dbManager/messages.manager.js";
-
 import * as dotenv from "dotenv";
 
 // Initializar dotenv
@@ -48,6 +47,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/products/", productsRouter);
 app.use("/api/carts/", cartsRouter);
 app.use("/api/chat/", chatRouter);
+app.use("/api/cart/", cartProductRouter);
 
 // Chat server
 io.on("connection", (socket) => {

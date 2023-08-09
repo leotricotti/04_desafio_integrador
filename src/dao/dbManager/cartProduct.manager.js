@@ -1,4 +1,4 @@
-import cartProductModel from "../models/cartProduct.model";
+import cartProductModel from "../models/cartProduct.model.js";
 
 export default class CartProduct {
   saveCartProduct = async (cartProduct) => {
@@ -6,10 +6,8 @@ export default class CartProduct {
     return result;
   };
 
-  updateCartProduct = async (id, quantity) => {
-    const result = await cartProductModel.findByIdAndUpdate(id, {
-      quantity: quantity,
-    });
+  updateCartProduct = async (id, product) => {
+    const result = await cartProductModel.updateOne({ _id: id }, product);
     return result;
   };
 }
