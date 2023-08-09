@@ -55,6 +55,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+/*
 // Método asyncrono para agregar productos al carrito
 router.post("/:cid/products/:pid", async (req, res) => {
   const { cid, pid } = req.params;
@@ -85,5 +86,5 @@ router.post("/:cid/products/:pid", async (req, res) => {
       .json({ message: "Error al agregar el producto", data: err });
   }
 });
-
+*/
 export default router;
