@@ -48,7 +48,7 @@ router.post("/", async (req, res) => {
     products: [],
   };
   try {
-    await cartsManager.saveCart(newCart);
+    const result = await cartsManager.saveCart(newCart);
     res.json({ message: "Carrito creado con éxito", data: newCart });
   } catch (err) {
     res.status(500).json({ message: "Error al crear el carrito ", data: err });

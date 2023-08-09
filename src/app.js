@@ -28,7 +28,6 @@ const connection = mongoose.connect(MONGO_URI);
 
 connection
   .then(() => {
-    // Loader();
     console.log("Conectado a la base de datos");
   })
   .catch((err) => {
