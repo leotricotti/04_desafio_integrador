@@ -58,13 +58,13 @@ router.post("/", async (req, res) => {
 //Método asyncrono para agregar productos al carrito
 router.post("/:cid/product/:pid", async (req, res) => {
   const { cid, pid } = req.params;
-  console.log(cid, pid);
   try {
-    const cart = await cartsModel.findOne(cid);
+    const cart = await cartsManager.getOne(cid);
 
     cart.products.push({ product: pid });
-    const cartProduct = await cartsManager.updateCart(cid, cart);
-    res.json({ message: "Carrito actualizado con éxito", data: cart });
+    let result = await cartsManager.updateCart(cid, cart);
+
+    res.json({ message: "Carrito actualizado con éxito", data: result });
   } catch (err) {
     res.status(500).json({
       message: "Error al actualizar el carrito",

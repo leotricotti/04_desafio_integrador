@@ -7,7 +7,8 @@ export default class CartProduct {
   };
 
   updateCartProduct = async (id, product) => {
-    const result = await cartProductModel.updateOne({ _id: id }, product);
+    console.log(id, product);
+    const result = await cartProductModel.updateOne(id, product);
     return result;
   };
 }
