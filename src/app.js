@@ -16,7 +16,7 @@ dotenv.config();
 // Variables de entorno
 const messagesManager = new Messages();
 const app = express();
-const PORT = process.env.PORT || 8085;
+const PORT = process.env.PORT || 8080;
 const httpServer = app.listen(PORT, () => {
   console.log(`Servidor escuchando peticiones desde el puerto ${PORT}`);
 });

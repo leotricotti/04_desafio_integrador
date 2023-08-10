@@ -1,5 +1,4 @@
 import { Router } from "express";
-import cartsModel from "../dao/models/carts.model.js";
 import CartProduct from "../dao/dbManager/cartProduct.manager.js";
 
 const router = Router();
@@ -17,6 +16,20 @@ router.post("/", async (req, res) => {
   } catch (err) {
     res.status(500).json({
       message: "Error al agregar el producto al carrito",
+      data: err,
+    });
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  const { id } = req.params;
+  const { quantity } = req.body;
+  try {
+    const cart = await cartProductManager.updateCartProduct(id, quantity);
+    res.json({ message: "Producto actualizado con éxito", data: cart });
+  } catch (err) {
+    res.status(500).json({
+      message: "Error al actualizar el producto del carrito",
       data: err,
     });
   }

@@ -18,7 +18,7 @@ export default class Cart {
   };
 
   updateCart = async (id, cart) => {
-    let result = await cartsModel.updateOne({ _id: id, cart });
+    let result = await cartsModel.updateOne({ _id: id }, cart);
     return result;
   };
 }
